@@ -1,0 +1,28 @@
+{
+  "name": "caps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --verbose  --coverage"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HusamAjour/caps.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HusamAjour/caps/issues"
+  },
+  "homepage": "https://github.com/HusamAjour/caps#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "faker": "^5.1.0",
+    "jest": "^26.6.3",
+    "jest-cli": "^26.6.3",
+    "mongoose": "^5.11.12"
+  }
+}
