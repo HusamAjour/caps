@@ -3,7 +3,9 @@
 const eventsEmmiter = require('../events');
 require('../caps');
 
+
 jest.spyOn(global.console, 'log');
+
 
 describe('Driver Module', () => {
   beforeEach(() => {

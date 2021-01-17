@@ -24,4 +24,4 @@ run `npm test`
 
 #### UML
 
-![uml](assets/uml.jpeg)
+![UML](assets/uml.jpeg)
