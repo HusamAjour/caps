@@ -17,4 +17,3 @@ const generateOrder = () => {
   return orderObj;
 };
 module.exports = generateOrder;
-
