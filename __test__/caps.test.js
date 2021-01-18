@@ -1,7 +1,7 @@
 'use strict';
 
-const eventsEmmiter = require('../events');
-require('../caps');
+const eventsEmmiter = require('../server/events');
+require('../server/caps');
 
 
 jest.spyOn(global.console, 'log');

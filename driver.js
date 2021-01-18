@@ -11,7 +11,7 @@ let driver = (obj) => {
   setTimeout(() => {
     console.log(`DRIVER: delivered up ${obj.orderId}`);
     eventsEmmiter.emit('delivered', obj);
-  },3000);
+  }, 3000);
 };
 
 module.exports = driver;

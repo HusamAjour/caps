@@ -1,5 +1,6 @@
 'use strict';
 
+
 const eventsEmmiter = require('./events');
 
 eventsEmmiter.on('pickup', (payload) => EVENT('pickup', payload));
@@ -14,3 +15,4 @@ function EVENT(event, payload) {
 function onDelivered(payload) {
   console.log(`VENDOR: Thank you for delivering ${payload.orderId}`);
 }
+
