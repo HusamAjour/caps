@@ -1,5 +1,21 @@
 'use strict';
 
+const io = require('socket.io-client');
+const caps = io.connect(`http://localhost:3030/caps`);
+
+caps.on('pickup', (payload) => {
+  setTimeout(() => {
+    console.log(`picked up ${payload.orderId}`);
+    caps.emit('in-transit', payload);
+  }, 1500);
+
+  setTimeout(() => {
+    console.log(`delivered up ${payload.orderId}`);
+    caps.emit('delivered', payload);
+  }, 3000);
+});
+
+/*
 const net = require('net');
 const client = new net.Socket();
 const faker = require('faker');
@@ -31,36 +47,4 @@ client.connect(port, host, () => {
     }
   });
 });
-
-/*const generateOrder = () => {
-  let order = JSON.stringify({
-    event: 'pickup',
-    payload: {
-      storeName: process.env.STORE_NAME,
-      orderId: faker.random.uuid(),
-      customerName: faker.name.findName(),
-      address: `${faker.address.city()}, ${faker.address.stateAbbr()}`,
-    },
-  });
-
-  client.write(order);
-};
-
-setTimeout(generateOrder, 5000);
-/*
-const eventsEmmiter = require('../server/events');
-const faker = require('faker');
-
-let driver = (obj) => {
-  setTimeout(() => {
-    console.log(`DRIVER: picked up ${obj.orderId}`);
-    eventsEmmiter.emit('in-transit', obj);
-  }, 1000);
-  setTimeout(() => {
-    console.log(`DRIVER: delivered up ${obj.orderId}`);
-    eventsEmmiter.emit('delivered', obj);
-  },3000);
-};
-
-module.exports = driver;
 */
