@@ -14,6 +14,7 @@ server.on('connection', (socket) => {
   socket.on('data', (data) => {
     let msg = JSON.parse(data.toString().trim());
     if (msg.event && msg.payload) {
+      console.log(msg);
       let payload = JSON.stringify(msg);
       for (let socket in connectionPool) {
         connectionPool[socket].write(payload);
@@ -24,16 +25,18 @@ server.on('connection', (socket) => {
   socket.on('end', (e) => delete connectionPool[id]);
 });
 
+function EVENT(event, payload) {
+  let time = new Date().toUTCString();
+  console.log({ event, time, payload });
+}
+
 /*const eventsEmmiter = require('./events');
 
 eventsEmmiter.on('pickup', (payload) => EVENT('pickup', payload));
 eventsEmmiter.on('in-transit', (payload) => EVENT('in-transit', payload));
 eventsEmmiter.on('delivered', (payload) => onDelivered(payload));
 
-function EVENT(event, payload) {
-  let time = new Date().toUTCString();
-  console.log({ event, time, payload });
-}
+
 
 function onDelivered(payload) {
   console.log(`VENDOR: Thank you for delivering ${payload.orderId}`);

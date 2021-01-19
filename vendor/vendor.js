@@ -11,6 +11,8 @@ client.connect(port, host, () => {
   console.log('Vendor CONNECT MSG');
   client.on('data', (data) => {
     const obj = JSON.parse(data);
+    console.log(`Inside Vendor: `);
+    console.log(obj);
     if (obj.event === 'delivered') {
       console.log(`thank you for delivering ${obj.payload.orderId}`);
     }
